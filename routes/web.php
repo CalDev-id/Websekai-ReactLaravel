@@ -25,6 +25,20 @@ Route::get('/', function () {
     ]);
 });
 
+// Route::redirect('/', '/login');
+
+Route::get('/logintes', function(){
+    return Inertia::render('LoginPage');
+})->name('logintes');
+
+Route::get('/signup', function(){
+    return Inertia::render('SignUpPage');
+})->name('signuptes');
+
+Route::get('/index', function(){
+    return Inertia::render('Index');
+})->name('index');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

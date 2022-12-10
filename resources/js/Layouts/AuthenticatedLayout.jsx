@@ -64,6 +64,7 @@ export default function Authenticated({ auth, header, children }) {
                             </div>
                         </div>
 
+                        {/* Hamburger Button */}
                         <div className="-mr-2 flex items-center sm:hidden">
                             <button
                                 onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
