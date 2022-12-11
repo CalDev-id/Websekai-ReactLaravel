@@ -23,6 +23,8 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
-        "daisyui": "^2.42.1"
+        "daisyui": "^2.42.1",
+        "flickity": "^3.0.0",
+        "swiper": "^8.4.5"
     }
 }

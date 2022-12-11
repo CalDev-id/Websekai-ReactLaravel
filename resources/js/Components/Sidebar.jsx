@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { Link, Head } from "@inertiajs/inertia-react";
+import Index from "@/Pages/Index";
 // import route from "vendor/tightenco/ziggy/src/js";
 
-const Sidebar = () => {
-    const [sidebarOn, setSidebarOn] = useState(true);
+const Sidebar = ({sidebarOn, setSidebarOn}) => {
     return (
         <>
             <section
                 className={
                     sidebarOn
-                        ? "w-full bg-black md:w-[300px] absolute md:static bg-opacity-50 md:bg-transparent z-20"
+                        ? "w-full bg-black lg:w-[15%] sm:w-1/2 bg-opacity-50 lg:bg-transparent z-20 fixed"
                         : "hidden"
                 }
             >
                 <section
                     className={
                         sidebarOn
-                            ? "w-2/3 bg-[#35383F] h-screen md:w-full"
+                            ? "w-2/3 sm:w-full bg-[#35383F] h-screen lg:w-full relative"
                             : "hidden"
                     }
                 >
@@ -24,11 +24,11 @@ const Sidebar = () => {
                         onClick={() => {
                             setSidebarOn(false);
                         }}
-                        className="text-green-500 text-3xl float-right m-5 md:hidden"
+                        className="text-green-500 text-3xl float-right m-5 lg:hidden"
                     >
                         <i className="bx bx-x"></i>
                     </span>
-                    <div className="px-5">
+                    <div className="pl-5">
                         <h1 className="py-10 font-semibold text-2xl">Dynavx</h1>
 
                         <div className="mb-10">
@@ -60,7 +60,7 @@ const Sidebar = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div>
+                        <div className="relative z-10">
                             <p className="text-white">Others</p>
                             <ul className="text-lg">
                                 <li className="flex my-3">
@@ -94,7 +94,10 @@ const Sidebar = () => {
 
                         {/* bawah */}
 
-                        <div className="my-10">
+                        <div>
+                            <img src="/images/deku.png" alt="" className="absolute pl-5 z-0 opacity-30 w-full -bottom-0 -right-0 lg:w-full"/>
+                        </div>
+                        {/* <div className="my-10">
                             <p className="text-xl font-bold">For Greatest</p>
                             <p>12 of 30 hari</p>
                             <progress
@@ -102,7 +105,7 @@ const Sidebar = () => {
                                 value="40"
                                 max="100"
                             ></progress>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
             </section>
