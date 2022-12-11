@@ -34,12 +34,12 @@ const Sidebar = ({sidebarOn, setSidebarOn}) => {
                         <div className="mb-10">
                             <p className="text-white">Menu</p>
                             <ul className="text-lg">
-                                <li className="flex my-3">
+                                <Link href={route("index")} className="flex my-3">
                                     <span className="text-green-500">
                                         <i className="bx bxs-home"></i>
                                     </span>
                                     <p className="mx-3">Discover</p>
-                                </li>
+                                </Link>
                                 <li className="flex my-3">
                                     <span className="text-green-500">
                                         <i className="bx bxs-heart"></i>
@@ -63,12 +63,12 @@ const Sidebar = ({sidebarOn, setSidebarOn}) => {
                         <div className="relative z-10">
                             <p className="text-white">Others</p>
                             <ul className="text-lg">
-                                <li className="flex my-3">
+                                <Link href={route("subscription")} className="flex my-3">
                                     <span className="text-green-500">
                                         <i className="bx bxs-wallet"></i>
                                     </span>
                                     <p className="mx-3">Payments</p>
-                                </li>
+                                </Link>
                                 <li className="flex my-3">
                                     <span className="text-green-500">
                                         <i className="bx bxs-bar-chart-square"></i>

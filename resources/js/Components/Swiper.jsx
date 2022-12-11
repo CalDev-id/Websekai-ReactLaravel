@@ -29,7 +29,7 @@ export default function App() {
             >
                 <div>
                     {[1, 2].map((i) => (
-                        <SwiperSlide>
+                        <SwiperSlide key={i}>
                             {" "}
                             <img
                                 src="/images/kny.jpg"

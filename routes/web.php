@@ -39,6 +39,10 @@ Route::get('/index', function(){
     return Inertia::render('Index');
 })->name('index');
 
+Route::get('/subscription', function(){
+    return Inertia::render('Subscription');
+})->name('subscription');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
