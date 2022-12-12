@@ -8,7 +8,7 @@ import HomeLayout from "@/Layouts/HomeLayout";
 
 const Index = () => {
     return (
-        <HomeLayout>
+        <HomeLayout home={true} pageName={"Websekai"}>
             <SwiperC />
             <div className="my-2 px-3">
                 <div className="flex mb-3 justify-between text-green-500">

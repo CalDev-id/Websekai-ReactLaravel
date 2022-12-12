@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link, Head } from "@inertiajs/inertia-react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -19,7 +20,7 @@ const Browse = ({ name, genre }) => {
                 }}
                 breakpoints={{
                     640: {
-                        slidesPerView: 2,
+                        slidesPerView: 4,
                         spaceBetween: 20,
                     },
                     768: {
@@ -27,6 +28,11 @@ const Browse = ({ name, genre }) => {
                         spaceBetween: 40,
                     },
                     1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 50,
+                    },
+
+                    1280: {
                         slidesPerView: 5,
                         spaceBetween: 50,
                     },
@@ -36,10 +42,11 @@ const Browse = ({ name, genre }) => {
             >
                 {" "}
                 <div>
-                    {[1, 2].map((i) => (
+                    {[1, 2, 3].map((i) => (
                         <SwiperSlide key={i}>
                             {" "}
-                            <div className="absolute group overflow-hidden rounded-2xl">
+                            {/* harusnya ada slug disini */}
+                            <Link href={route('movie.show')} className="absolute group overflow-hidden rounded-2xl">
                                 <img
                                     src="/images/aot.jpg"
                                     className="object-cover h-36 w-full lg:h-56  lg:w-[250px]"
@@ -56,7 +63,7 @@ const Browse = ({ name, genre }) => {
                                     </div>
                                 </div>
                                 <div
-                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-100 lg:group-hover:scale-150 opacity-0 group-hover:opacity-100
+                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-100 lg:group-hover:scale-125 opacity-0 group-hover:opacity-100
                              z-20 transition ease-in-out duration-500"
                                 >
                                     <img
@@ -66,11 +73,7 @@ const Browse = ({ name, genre }) => {
                                         alt=""
                                     />
                                 </div>
-                                <a
-                                    href="watching.html"
-                                    className="inset-0 absolute z-50"
-                                ></a>
-                            </div>
+                            </Link>
                         </SwiperSlide>
                     ))}
                     <SwiperSlide>
@@ -92,7 +95,7 @@ const Browse = ({ name, genre }) => {
                                 </div>
                             </div>
                             <div
-                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-100 lg:group-hover:scale-150 opacity-0 group-hover:opacity-100
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-100 lg:group-hover:scale-125 opacity-0 group-hover:opacity-100
                              z-20 transition ease-in-out duration-500"
                             >
                                 <img
@@ -128,7 +131,7 @@ const Browse = ({ name, genre }) => {
                                     </div>
                                 </div>
                                 <div
-                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-100 lg:group-hover:scale-150 opacity-0 group-hover:opacity-100
+                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-100 lg:group-hover:scale-125 opacity-0 group-hover:opacity-100
                              z-20 transition ease-in-out duration-500"
                                 >
                                     <img

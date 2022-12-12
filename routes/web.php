@@ -43,6 +43,11 @@ Route::get('/subscription', function(){
     return Inertia::render('Subscription');
 })->name('subscription');
 
+//harusnya ada slug disini
+Route::get('/movie', function(){
+    return Inertia::render('Movie/ShowMovie');
+})->name('movie.show');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

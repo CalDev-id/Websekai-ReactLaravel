@@ -10,14 +10,14 @@ const Sidebar = ({sidebarOn, setSidebarOn}) => {
                 className={
                     sidebarOn
                         ? "w-full bg-black lg:w-[15%] sm:w-1/2 bg-opacity-50 lg:bg-transparent z-20 fixed"
-                        : "hidden"
+                        : "hidden lg:block"
                 }
             >
                 <section
                     className={
                         sidebarOn
                             ? "w-2/3 sm:w-full bg-[#35383F] h-screen lg:w-full relative"
-                            : "hidden"
+                            : "hidden lg:block lg:fixed lg:w-[15%] sm:w-1/2 h-full bg-[#35383F]"
                     }
                 >
                     <span

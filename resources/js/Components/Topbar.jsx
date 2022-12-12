@@ -1,7 +1,8 @@
 import Index from "@/Pages/Index";
 import { useRef, useState } from "react";
+import { Link, Head } from "@inertiajs/inertia-react";
 
-const Topbar = ({ setSidebarOn }) => {
+const Topbar = ({ setSidebarOn, home, pageName }) => {
     const [dropdownOpen, setDropdownOpen] = useState(true);
     const dropdownTarget = useRef();
 
@@ -19,12 +20,25 @@ const Topbar = ({ setSidebarOn }) => {
             <div className="w-full">
                 <div className="bg-transparent fixed py-5 lg:py-8 z-10 w-full lg:static">
                     <div className="flex justify-between mx-5 lg:mx-0">
-                        <img
-                            src="/images/logo.png"
-                            alt=""
-                            className="w-10 lg:hidden"
-                            onClick={setSidebarOn.bind(null, true)}
-                        />
+                    {home ? (
+                            <div className="flex lg:hidden">
+                            <img
+                                src="/images/logo.png"
+                                alt=""
+                                className="w-10 lg:hidden"
+                                onClick={setSidebarOn.bind(null, true)}
+                            />
+                            <h1 className="self-center text-2xl font-bold text-white ml-3">{pageName}</h1>
+                            </div>
+                        ) : (
+                            <div className="flex lg:hidden">
+                            <Link href={route("index")} className="text-4xl text-white">
+                                <i class="bx bx-left-arrow-alt"></i>
+                            </Link>
+                            <h1 className="self-center text-xl font-bold mb-2 text-white ml-3">{pageName}</h1>
+                            </div>
+                        )}
+
                         <input
                             type="text"
                             name="search"
