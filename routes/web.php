@@ -16,16 +16,16 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
-// Route::redirect('/', '/login');
+Route::redirect('/', '/login');
 
 Route::get('/logintes', function(){
     return Inertia::render('LoginPage');
@@ -39,6 +39,10 @@ Route::get('/index', function(){
     return Inertia::render('Index');
 })->name('index');
 
+Route::get('/chats', function(){
+    return Inertia::render('ChatsPage');
+})->name('chats');
+
 Route::get('/subscription', function(){
     return Inertia::render('Subscription');
 })->name('subscription');
@@ -49,7 +53,7 @@ Route::get('/movie', function(){
 })->name('movie.show');
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('User/Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

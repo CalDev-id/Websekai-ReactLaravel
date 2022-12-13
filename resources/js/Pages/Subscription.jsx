@@ -1,9 +1,9 @@
 import HomeLayout from "@/Layouts/HomeLayout";
 import SubscriptionCard from "@/Components/SubscriptionCard";
 
-const Subscription = () => {
+const Subscription = ({auth}) => {
     return (
-        <HomeLayout>
+        <HomeLayout auth={auth}>
             <div className="py-20 lg:py-0 flex flex-col items-center">
                 <div className="text-green-500 font-semibold text-[26px] mb-3">
                     Subscribe To Premium

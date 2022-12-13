@@ -2,7 +2,7 @@ import Index from "@/Pages/Index";
 import { useRef, useState } from "react";
 import { Link, Head } from "@inertiajs/inertia-react";
 
-const Topbar = ({ setSidebarOn, home, pageName }) => {
+const Topbar = ({ setSidebarOn, home, pageName, name }) => {
     const [dropdownOpen, setDropdownOpen] = useState(true);
     const dropdownTarget = useRef();
 
@@ -33,7 +33,7 @@ const Topbar = ({ setSidebarOn, home, pageName }) => {
                         ) : (
                             <div className="flex lg:hidden">
                             <Link href={route("index")} className="text-4xl text-white">
-                                <i class="bx bx-left-arrow-alt"></i>
+                                <i className="bx bx-left-arrow-alt"></i>
                             </Link>
                             <h1 className="self-center text-xl font-bold mb-2 text-white ml-3">{pageName}</h1>
                             </div>
@@ -53,7 +53,7 @@ const Topbar = ({ setSidebarOn, home, pageName }) => {
                             </span>
 
                             <p className="px-5 text-lg self-center font-semibold hidden lg:block">
-                                Welcome, Dynavx
+                                Welcome, {name}
                             </p>
                             <img
                                 onClick={triggerDropdown}
@@ -74,9 +74,9 @@ const Topbar = ({ setSidebarOn, home, pageName }) => {
                             <li className="p-5 py-3">
                                 <a href="#">Settings</a>
                             </li>
-                            <li className="p-5 py-3">
-                                <a href="#">Sign out</a>
-                            </li>
+                            <Link href={route("logout")} method="post" as="button" className="p-5 py-3">
+                                <p href="#">Sign out</p>
+                            </Link >
                         </ul>
                     </div>
                 </div>

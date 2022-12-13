@@ -3,7 +3,7 @@ import { Link, Head } from "@inertiajs/inertia-react";
 import Index from "@/Pages/Index";
 // import route from "vendor/tightenco/ziggy/src/js";
 
-const Sidebar = ({sidebarOn, setSidebarOn}) => {
+const Sidebar = ({sidebarOn, setSidebarOn, name}) => {
     return (
         <>
             <section
@@ -29,12 +29,12 @@ const Sidebar = ({sidebarOn, setSidebarOn}) => {
                         <i className="bx bx-x"></i>
                     </span>
                     <div className="pl-5">
-                        <h1 className="py-10 font-semibold text-2xl">Dynavx</h1>
+                        <h1 className="py-10 lg:py-20 font-semibold text-2xl">{name}</h1>
 
                         <div className="mb-10">
                             <p className="text-white">Menu</p>
                             <ul className="text-lg">
-                                <Link href={route("index")} className="flex my-3">
+                                <Link href={route("dashboard")} className="flex my-3">
                                     <span className="text-green-500">
                                         <i className="bx bxs-home"></i>
                                     </span>
@@ -81,7 +81,7 @@ const Sidebar = ({sidebarOn, setSidebarOn}) => {
                                     </span>
                                     <p className="mx-3">Your Profile</p>
                                 </li>
-                                <Link href={route("logintes")}>
+                                <Link href={route("logout")} method="post" as="button">
                                     <li className="flex my-3">
                                         <span className="text-green-500">
                                             <i className="bx bx-log-out"></i>
@@ -95,17 +95,8 @@ const Sidebar = ({sidebarOn, setSidebarOn}) => {
                         {/* bawah */}
 
                         <div>
-                            <img src="/images/deku.png" alt="" className="absolute pl-5 z-0 opacity-30 w-full -bottom-0 -right-0 lg:w-full"/>
+                            <img src="/images/deku.png" alt="" className=" absolute pl-5 z-0 opacity-30 w-full -bottom-0 -right-0 lg:w-full"/>
                         </div>
-                        {/* <div className="my-10">
-                            <p className="text-xl font-bold">For Greatest</p>
-                            <p>12 of 30 hari</p>
-                            <progress
-                                className="progress progress-success w-56"
-                                value="40"
-                                max="100"
-                            ></progress>
-                        </div> */}
                     </div>
                 </section>
             </section>
