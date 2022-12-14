@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\MovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +37,10 @@ Route::get('/signup', function(){
     return Inertia::render('SignUpPage');
 })->name('signuptes');
 
-Route::get('/index', function(){
-    return Inertia::render('Index');
-})->name('index');
+// ini index lama
+// Route::get('/index', function(){
+//     return Inertia::render('Index');
+// })->name('index');
 
 Route::get('/chats', function(){
     return Inertia::render('ChatsPage');
@@ -48,13 +51,18 @@ Route::get('/subscription', function(){
 })->name('subscription');
 
 //harusnya ada slug disini
-Route::get('/movie', function(){
-    return Inertia::render('Movie/ShowMovie');
-})->name('movie.show');
+// Route::get('/movie/{slug}', function(){
+//     return Inertia::render('Movie/ShowMovie');
+// })->name('movie.show');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('User/Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('User/Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

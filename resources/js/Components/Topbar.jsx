@@ -32,7 +32,7 @@ const Topbar = ({ setSidebarOn, home, pageName, name }) => {
                             </div>
                         ) : (
                             <div className="flex lg:hidden">
-                            <Link href={route("index")} className="text-4xl text-white">
+                            <Link href={route("user.dashboard.index")} className="text-4xl text-white">
                                 <i className="bx bx-left-arrow-alt"></i>
                             </Link>
                             <h1 className="self-center text-xl font-bold mb-2 text-white ml-3">{pageName}</h1>

@@ -34,7 +34,7 @@ const Sidebar = ({sidebarOn, setSidebarOn, name}) => {
                         <div className="mb-10">
                             <p className="text-white">Menu</p>
                             <ul className="text-lg">
-                                <Link href={route("dashboard")} className="flex my-3">
+                                <Link href={route("user.dashboard.index")} className="flex my-3">
                                     <span className="text-green-500">
                                         <i className="bx bxs-home"></i>
                                     </span>
