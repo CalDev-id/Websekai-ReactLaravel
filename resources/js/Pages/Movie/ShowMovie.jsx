@@ -3,9 +3,9 @@ import HomeLayout from "@/Layouts/HomeLayout";
 import React from "react";
 import ReactPlayer from "react-player";
 
-const Show = () => {
+const Show = ({auth, movies, listMovie}) => {
     return (
-        <HomeLayout>
+        <HomeLayout auth={auth}>
             <div className="h-screen lg:h-full pb-20">
                 <div className="lg:hidden">
                     <ReactPlayer
@@ -30,11 +30,11 @@ const Show = () => {
                     <div className="flex my-2">
                         <div className="flex mr-5 self-center">
                             <span className="text-green-500">
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                             </span>
                             <p className="px-2">9.8</p>
                             <span className="text-green-500 text-xl">
-                                <i class="bx bx-chevron-right"></i>
+                                <i className="bx bx-chevron-right"></i>
                             </span>
                             <p className="text-white">2022</p>
                         </div>
@@ -53,13 +53,13 @@ const Show = () => {
                     <div className="flex justify-between py-2 lg:hidden">
                         <div className="rounded-full border-2 bg-green-500 flex w-[49%] justify-center border-green-500 text-white">
                             <span className="text-xl self-center">
-                                <i class="bx bx-play"></i>
+                                <i className="bx bx-play"></i>
                             </span>
                             <p className="self-center font-bold">Play</p>
                         </div>
                         <div className="rounded-full border-2 flex w-[49%] py-1 justify-center border-green-500 text-green-500">
                             <span className="text-xl self-center">
-                                <i class="bx bx-cloud-download"></i>
+                                <i className="bx bx-cloud-download"></i>
                             </span>
                             <p className="self-center font-bold">Download</p>
                         </div>
@@ -82,10 +82,10 @@ const Show = () => {
                         <div className="flex text-white font-bold justify-between mb-3">
                             <p>Anime List</p>
                             <p className="text-green-500 font-normal">
-                                View More<i class="bx bx-chevron-down"></i>
+                                View More<i className="bx bx-chevron-down"></i>
                             </p>
                         </div>
-                        <Browse />
+                        <Browse movies={listMovie} />
                     </div>
                 </div>
             </div>

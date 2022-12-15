@@ -10,6 +10,10 @@ use Inertia\Inertia;
 class MovieController extends Controller
 {
     public function show(movie $movie){
-        return $movie;
+        $listMovie = movie::all();
+        return Inertia::render('Movie/ShowMovie', [
+            'movie' => $movie,
+            'listMovie' => $listMovie
+        ]);
     }
 }
