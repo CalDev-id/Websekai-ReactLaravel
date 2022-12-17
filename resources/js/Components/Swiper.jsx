@@ -36,7 +36,7 @@ export default function App({movies}) {
                             <img
                                 src={"/images/" + movies.thumbnail}
                                 alt=""
-                                className="absolute -z-10 h-full w-full object-cover rounded-2xl"
+                                className="absolute h-full -z-10 w-full object-cover rounded-2xl"
                             />
                             <div className="relative bg-black bg-opacity-40 pt-44 px-5 pb-4 lg:px-20 lg:py-28 rounded-2xl">
                                 <h1 className="text-2xl font-bold md:text-3xl text-slate-100">

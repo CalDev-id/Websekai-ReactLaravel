@@ -17,4 +17,8 @@ class DashboardController extends Controller
             'bMovies' => $bMovies
         ]);
     }
+
+    public function Chats(){
+        return Inertia::render('ChatsPage');
+    }
 }

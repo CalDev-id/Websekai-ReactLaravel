@@ -3,13 +3,13 @@ import HomeLayout from "@/Layouts/HomeLayout";
 import React from "react";
 import ReactPlayer from "react-player";
 
-const Show = ({auth, movies, listMovie}) => {
+const Show = ({auth, movie, listMovie}) => {
     return (
         <HomeLayout auth={auth}>
             <div className="h-screen lg:h-full pb-20">
                 <div className="lg:hidden">
                     <ReactPlayer
-                        url="/images/demon.mp4"
+                        url={"/videos/" + movie.video_url}
                         controls
                         width={"100%"}
                         height={"220px"}
@@ -17,7 +17,7 @@ const Show = ({auth, movies, listMovie}) => {
                 </div>
                 <div className="hidden lg:block">
                     <ReactPlayer
-                        url="/images/demon.mp4"
+                    url={"/videos/" + movie.video_url}
                         controls
                         width={"100%"}
                         height={"650px"}
@@ -25,14 +25,14 @@ const Show = ({auth, movies, listMovie}) => {
                 </div>
                 <div className="mx-5 mt-5">
                     <h1 className="font-bold text-2xl text-white">
-                        Demon Slayer : Kimetsu No..
+                        {movie.name}
                     </h1>
                     <div className="flex my-2">
                         <div className="flex mr-5 self-center">
                             <span className="text-green-500">
                                 <i className="bx bxs-star"></i>
                             </span>
-                            <p className="px-2">9.8</p>
+                            <p className="px-2">{movie.rating}</p>
                             <span className="text-green-500 text-xl">
                                 <i className="bx bx-chevron-right"></i>
                             </span>
@@ -67,13 +67,10 @@ const Show = ({auth, movies, listMovie}) => {
 
                     <div className="py-2 text-sm text-white">
                         <p className="mb-1">
-                            Genre: Action, Martial Arts, Adventure, Dark
-                            Fantasy..
+                            {movie.category}
                         </p>
                         <p className="text-slate-300">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Obcaecati veritatis praesentium reprehenderit
-                            libero perspiciatis non consectetur...{" "}
+                            {movie.description}
                             <span className="text-green-500">View More</span>
                         </p>
                     </div>

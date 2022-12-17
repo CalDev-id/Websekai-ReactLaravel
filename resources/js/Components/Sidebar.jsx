@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { Link, Head } from "@inertiajs/inertia-react";
 import Index from "@/Pages/Index";
+import {UserMenu, UserOthers} from "@/Components/MenuList";
+import SubscriptionDetail from "./SubscriptionDetail";
+import MenuItem from "./MenuItem";
 // import route from "vendor/tightenco/ziggy/src/js";
 
-const Sidebar = ({sidebarOn, setSidebarOn, name}) => {
+const Sidebar = ({sidebarOn, setSidebarOn, name, plans, auth}) => {
     return (
         <>
             <section
                 className={
                     sidebarOn
-                        ? "w-full bg-black lg:w-[15%] sm:w-1/2 bg-opacity-50 lg:bg-transparent z-20 fixed"
+                        ? "w-full bg-black lg:w-[20%] 2xl:w-[15%] sm:w-1/2 bg-opacity-50 lg:bg-transparent z-20 fixed"
                         : "hidden lg:block"
                 }
             >
@@ -17,7 +20,7 @@ const Sidebar = ({sidebarOn, setSidebarOn, name}) => {
                     className={
                         sidebarOn
                             ? "w-2/3 sm:w-full bg-[#35383F] h-screen lg:w-full relative"
-                            : "hidden lg:block lg:fixed lg:w-[15%] sm:w-1/2 h-full bg-[#35383F]"
+                            : "hidden lg:block lg:fixed lg:w-[20%] 2xl:w-[15%] sm:w-1/2 h-full bg-[#35383F]"
                     }
                 >
                     <span
@@ -29,66 +32,33 @@ const Sidebar = ({sidebarOn, setSidebarOn, name}) => {
                         <i className="bx bx-x"></i>
                     </span>
                     <div className="pl-5">
-                        <h1 className="py-10 lg:py-20 font-semibold text-2xl">{name}</h1>
+                        <h1 className="py-10 lg:py-16 font-semibold text-2xl">{name}</h1>
 
                         <div className="mb-10">
                             <p className="text-white">Menu</p>
                             <ul className="text-lg">
-                                <Link href={route("user.dashboard.index")} className="flex my-3">
-                                    <span className="text-green-500">
-                                        <i className="bx bxs-home"></i>
-                                    </span>
-                                    <p className="mx-3">Discover</p>
-                                </Link>
-                                <li className="flex my-3">
-                                    <span className="text-green-500">
-                                        <i className="bx bxs-heart"></i>
-                                    </span>
-                                    <p className="mx-3">Your Favourite</p>
-                                </li>
-                                <li className="flex my-3">
-                                    <span className="text-green-500">
-                                        <i className="bx bxs-download"></i>
-                                    </span>
-                                    <p className="mx-3">Downloads</p>
-                                </li>
-                                <li className="flex my-3">
-                                    <span className="text-green-500">
-                                        <i className="bx bxs-chat"></i>
-                                    </span>
-                                    <p className="mx-3">Messages (102)</p>
-                                </li>
+                                {UserMenu.map((menu, index) => (
+                                    <MenuItem key={`${index}-${menu.text}`}
+                                    link={menu.link}
+                                    icon={menu.icon}
+                                    text={menu.text}
+                                    isActive={menu.link && route().current(menu.link)}
+                                    />
+                                ))}
                             </ul>
                         </div>
                         <div className="relative z-10">
                             <p className="text-white">Others</p>
                             <ul className="text-lg">
-                                <Link href={route("subscription")} className="flex my-3">
-                                    <span className="text-green-500">
-                                        <i className="bx bxs-wallet"></i>
-                                    </span>
-                                    <p className="mx-3">Payments</p>
-                                </Link>
-                                <li className="flex my-3">
-                                    <span className="text-green-500">
-                                        <i className="bx bxs-bar-chart-square"></i>
-                                    </span>
-                                    <p className="mx-3">Analytics</p>
-                                </li>
-                                <li className="flex my-3">
-                                    <span className="text-green-500">
-                                        <i className="bx bxs-user"></i>
-                                    </span>
-                                    <p className="mx-3">Your Profile</p>
-                                </li>
-                                <Link href={route("logout")} method="post" as="button">
-                                    <li className="flex my-3">
-                                        <span className="text-green-500">
-                                            <i className="bx bx-log-out"></i>
-                                        </span>
-                                        <p className="mx-3">Logout</p>
-                                    </li>
-                                </Link>
+                            {UserOthers.map((menu, index) => (
+                                    <MenuItem key={`${index}-${menu.text}`}
+                                    link={menu.link}
+                                    icon={menu.icon}
+                                    text={menu.text}
+                                    method={menu.method}
+                                    isActive={menu.link && route().current(menu.link)}
+                                    />
+                                ))}
                             </ul>
                         </div>
 
@@ -97,6 +67,12 @@ const Sidebar = ({sidebarOn, setSidebarOn, name}) => {
                         <div>
                             <img src="/images/deku.png" alt="" className=" absolute pl-5 z-0 opacity-30 w-full -bottom-0 -right-0 lg:w-full"/>
                         </div>
+                        {auth.activePlan && (
+                            <SubscriptionDetail isPremium={auth.activePlan.name === "Premium"}
+                            remainingActiveDays={auth.activePlan.remainingActiveDays}
+                            activeDays={auth.activePlan.activeDays}
+                            name={auth.activePlan.name} />
+                        )}
                     </div>
                 </section>
             </section>

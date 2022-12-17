@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\MovieController;
+use App\Http\Controllers\User\SubscriptionPlanController;
+use App\Models\SubscriptionPlan;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +48,9 @@ Route::get('/chats', function(){
     return Inertia::render('ChatsPage');
 })->name('chats');
 
-Route::get('/subscription', function(){
-    return Inertia::render('Subscription');
-})->name('subscription');
+// Route::get('/subscription', function(){
+//     return Inertia::render('Subscription');
+// })->name('subscription');
 
 //harusnya ada slug disini
 // Route::get('/movie/{slug}', function(){
@@ -61,7 +63,11 @@ Route::get('/subscription', function(){
 
 Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
-    Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
+    Route::get('/chats', [DashboardController::class, 'chats'])->name('chats');
+    Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show')->middleware('checkUserSubscription:true');
+    Route::get('/subscription', [SubscriptionPlanController::class, 'index'])->name('subscription.index')->middleware('checkUserSubscription:false');
+    Route::post('subscription/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscription.userSubscribe')->middleware('checkUserSubscription:false');
+
 });
 
 Route::middleware('auth')->group(function () {

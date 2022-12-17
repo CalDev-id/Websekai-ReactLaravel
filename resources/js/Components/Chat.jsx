@@ -17,37 +17,85 @@ const Chat = () => {
                 </p>
             </div>
 
-            <div className={showChat ? "bg-[#35383F] p-3 rounded-lg h-fit relative flex flex-col" : "hidden"}>
-                <div className="py-1">
-                    <p className="text-green-500 text-sm">Dynavx :</p>
-                    <p className="text-sm rounded-full border-2 border-slate-400 py-2 text-center w-fit px-3">
-                        wah anime bagus
-                    </p>
-                </div>
-                <div className="py-1">
-                    <p className="text-green-500 text-sm">Agus Rendang :</p>
-                    <p className="text-sm rounded-full border-2 border-slate-400 py-2 text-center  w-fit px-3">
-                        keqing wangy bgt
-                    </p>
-                </div>
-                <div className="py-1">
-                    <p className="text-green-500 text-sm">Nibras Sumedang :</p>
-                    <p className="text-sm rounded-full border-2 border-slate-400 py-2 text-center w-fit px-3">
-                        Astagfirullah mending kalian tobat
-                    </p>
-                </div>
-                <div className="py-1">
-                    <p className="text-green-500 text-sm">Nibras Sumedang :</p>
-                    <p className="text-sm rounded-full border-2 border-slate-400 py-2 text-center w-fit px-3">
-                        Ingat, Barang Siapa
-                    </p>
-                </div>
-                <div className="py-1">
-                    <p className="text-green-500 text-sm">Agus :</p>
-                    <p className="text-sm rounded-full border-2 border-slate-400 py-2 text-center  w-fit px-3">
-                        Barang Gw
-                    </p>
-                </div>
+            <div
+                className={
+                    showChat
+                        ? "bg-[#35383F] p-3 rounded-lg h-fit relative flex flex-col"
+                        : "hidden"
+                }
+            >
+                <ul>
+                    <li>
+                        <div className="chat chat-start">
+                            <div className="chat-image avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src="https://placeimg.com/192/191/people" />
+                                </div>
+                            </div>
+                            <div className="chat-header">
+                                Agus Rendang
+                                <time className="text-xs opacity-50 px-2">
+                                    2 hours ago
+                                </time>
+                            </div>
+                            <div className="chat-bubble">KEQING WANGY</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="chat chat-start">
+                            <div className="chat-image avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src="https://placeimg.com/192/192/people" />
+                                </div>
+                            </div>
+                            <div className="chat-header">
+                                Nibras Sumedang
+                                <time className="text-xs opacity-50 px-2">
+                                    2 hour ago
+                                </time>
+                            </div>
+                            <div className="chat-bubble">
+                                Astagfirullah Mending Tobat
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="chat chat-start">
+                            <div className="chat-image avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src="https://placeimg.com/192/192/people" />
+                                </div>
+                            </div>
+                            <div className="chat-header">
+                                Nibras Sumedang
+                                <time className="text-xs opacity-50 px-2">
+                                    2 hour ago
+                                </time>
+                            </div>
+                            <div className="chat-bubble">
+                                Ingat, Barang siapa
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="chat chat-start">
+                            <div className="chat-image avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src="https://placeimg.com/192/191/people" />
+                                </div>
+                            </div>
+                            <div className="chat-header">
+                                Agus Rendang
+                                <time className="text-xs opacity-50 px-2">
+                                    2 hour ago
+                                </time>
+                            </div>
+                            <div className="chat-bubble">
+                                Barang gw
+                            </div>
+                        </div>
+                    </li>
+                </ul>
                 <div className="flex py-2">
                     <input
                         type="text"

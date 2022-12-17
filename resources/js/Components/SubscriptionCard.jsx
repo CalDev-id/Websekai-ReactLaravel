@@ -38,14 +38,14 @@ const SubscriptionCard = ({
 
                     {/* <!-- Bottom: CTA Button --> */}
                     <div onClick={onSelectSubscription}>
-                        <a
-                            href="payment_status/failed.html"
-                            className="rounded-2xl border border-green-500 py-[13px] text-center grid"
+                        <button
+                            type="button"
+                            className="rounded-2xl border border-green-500 py-[13px] text-center grid w-full"
                         >
                             <span className="text-base text-green-500">
                                 Start {name}
                             </span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             )}
@@ -103,14 +103,13 @@ const SubscriptionCard = ({
 
                     {/* <!-- Bottom: CTA Button --> */}
                     <div onClick={onSelectSubscription}>
-                        <a
-                            href="payment_status/success.html"
-                            className="rounded-2xl bg-green-500 py-[13px] text-center grid"
+                        <button
+                            className="rounded-2xl bg-green-500 py-[13px] w-full text-center grid"
                         >
                             <span className="text-base font-semibold">
                                 Subscribe Now
                             </span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             )}

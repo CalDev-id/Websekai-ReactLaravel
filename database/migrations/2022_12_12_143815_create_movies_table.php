@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug', 100);
             $table->string('category', 255);
             $table->string('video_url');
+            $table->string('description');
             $table->string('thumbnail');
             $table->float('rating')->default(0);
             $table->timestamps();
