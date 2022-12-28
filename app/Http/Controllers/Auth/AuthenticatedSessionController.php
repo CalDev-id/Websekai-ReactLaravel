@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Contracts\Role;
 use Inertia\Inertia;
 
 class AuthenticatedSessionController extends Controller
@@ -36,6 +37,11 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        //bodoamat error yg penting jalan cuyy
+        if (Auth::user()->hasRole('admin')) {
+            return redirect(route('admin.dashboard.movie.index'));
+        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
