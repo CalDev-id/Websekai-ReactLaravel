@@ -3,10 +3,12 @@
 namespace App\Http\Middleware;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\Session\Session as SessionSession;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -58,6 +60,10 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
                 'activePlan' => $this->activePlan(),
+            ],
+            'flash' => [
+                'message' => $request->session()->get('message'),
+                'type' => $request->session()->get('type'),
             ],
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
