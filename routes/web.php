@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\MovieController;
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\User\SubscriptionPlanController;
 use App\Models\SubscriptionPlan;
 
@@ -68,6 +69,9 @@ Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashbo
     Route::get('/subscription', [SubscriptionPlanController::class, 'index'])->name('subscription.index')->middleware('checkUserSubscription:false');
     Route::post('subscription/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscription.userSubscribe')->middleware('checkUserSubscription:false');
 
+});
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group(function () {
+    Route::resource('movie', AdminMovieController::class);
 });
 
 Route::middleware('auth')->group(function () {
