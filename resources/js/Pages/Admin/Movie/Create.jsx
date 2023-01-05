@@ -81,7 +81,7 @@ const Create = ({ auth }) => {
                         />
                         <p>Video Url</p>
                         <TextInput
-                            type="url"
+                            type="text"
                             name="video_url"
                             className="mt-1 block w-full"
                             handleChange={onHandleChange}
