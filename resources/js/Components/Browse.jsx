@@ -48,7 +48,7 @@ const Browse = ({ name, genre, movies }) => {
                             {/* harusnya ada slug disini */}
                             <Link href={route('user.dashboard.movie.show', movies.slug)} className="absolute group overflow-hidden rounded-2xl">
                                 <img
-                                    src={`/images/${movies.thumbnail}`}
+                                    src={`/storage/${movies.thumbnail}`}
                                     className="object-cover h-36 w-full lg:h-56  lg:w-[250px]"
                                     alt=""
                                 />
