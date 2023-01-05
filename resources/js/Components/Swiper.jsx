@@ -34,7 +34,7 @@ export default function App({movies}) {
                         <SwiperSlide key={movies.id}>
                             {" "}
                             <img
-                                src={"/images/" + movies.thumbnail}
+                                src={"/storage/" + movies.thumbnail}
                                 alt=""
                                 className="absolute h-full -z-10 w-full object-cover rounded-2xl"
                             />
