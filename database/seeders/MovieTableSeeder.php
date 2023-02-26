@@ -17,14 +17,14 @@ class MovieTableSeeder extends Seeder
     {
         $movies = [
             [
-                'name' => 'Demon Slayer : Kimetsu No Yaiba',
+                'name' => 'Kimetsu No Yaiba',
                 'slug' => 'demon-slayer-kimetsu-no-yaiba',
                 'category' => 'Action, Martial Arts, Adventure',
                 'video_url' => 'demon.mp4',
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Obcaecati veritatis praesentium reprehenderit
                 libero perspiciatis non consectetur....',
-                'thumbnail' => 'kny.jpg',
+                'thumbnail' => 'movies/gMfPBo5Alsx00YquvDS17o1S2P0ny1LrVCrPxShc.jpg',
                 'rating' => 9.3,
             ],
             [
@@ -35,7 +35,7 @@ class MovieTableSeeder extends Seeder
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Obcaecati veritatis praesentium reprehenderit
                 libero perspiciatis non consectetur....',
-                'thumbnail' => 'aot.jpg',
+                'thumbnail' => 'movies/Zn9IXncJauzommaQkezdB6hgHKDvirNpliGqMSDC.jpg',
                 'rating' => 9.1,
             ],
             [
@@ -46,7 +46,7 @@ class MovieTableSeeder extends Seeder
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Obcaecati veritatis praesentium reprehenderit
                 libero perspiciatis non consectetur....',
-                'thumbnail' => 'jujitsu.jpeg',
+                'thumbnail' => 'movies/9FnMHvvMr9KYsLDPpuXP0QqGVulmiaGC6PeR0b87.jpg',
                 'rating' => 7.5,
             ],
             [
@@ -57,7 +57,7 @@ class MovieTableSeeder extends Seeder
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Obcaecati veritatis praesentium reprehenderit
                 libero perspiciatis non consectetur....',
-                'thumbnail' => 'spy.jpg',
+                'thumbnail' => 'movies/0ESNa23zvJjZl90Y8EcbQ2HGT3kTEItTbl7nPerZ.jpg',
                 'rating' => 9.7,
             ],
             [
@@ -68,7 +68,7 @@ class MovieTableSeeder extends Seeder
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Obcaecati veritatis praesentium reprehenderit
                 libero perspiciatis non consectetur....',
-                'thumbnail' => 'kaguya.jpg',
+                'thumbnail' => 'movies/qqKeEo2ZUV66BCOaXCOrH6nvkJdUS1mkvUo8CJIi.jpg',
                 'rating' => 9.2,
             ],
             [
@@ -79,7 +79,7 @@ class MovieTableSeeder extends Seeder
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Obcaecati veritatis praesentium reprehenderit
                 libero perspiciatis non consectetur....',
-                'thumbnail' => 'darling.jpg',
+                'thumbnail' => 'movies/ztZpoBd20ihGHl5bxFgFC0nxS7Gc0yN9QPwQiyU6.jpg',
                 'rating' => 9.2,
             ],
             [
@@ -90,7 +90,7 @@ class MovieTableSeeder extends Seeder
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Obcaecati veritatis praesentium reprehenderit
                 libero perspiciatis non consectetur....',
-                'thumbnail' => 'cb2.png',
+                'thumbnail' => 'movies/BwQTuLip4uZRBDVLE80pqHxB251G4jxRHhXEYOL7.png',
                 'rating' => 9.9,
             ]
         ];

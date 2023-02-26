@@ -6,7 +6,7 @@ const UserMenu = [
 
     },
     {
-        link: null,
+        link: 'user.dashboard.favourites',
         icon: (<i className="bx bxs-heart"></i>),
         text: 'Your Favourite',
 
@@ -52,4 +52,13 @@ const UserOthers = [
     },
 ];
 
-export { UserMenu, UserOthers };
+const Admin = [
+    {
+        link: "admin.dashboard.movie.index",
+        icon: (<i className='bx bxs-cog'></i>),
+        text: 'Admin Panel',
+
+    },
+];
+
+export { UserMenu, UserOthers, Admin };

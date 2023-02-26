@@ -10,5 +10,9 @@ class movie extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public function favourites(){
+        return $this->hasMany(Favourite::class);
+    }
+
     protected $fillable = ['name', 'slug', 'category', 'video_url', 'description', 'thumbnail', 'rating'];
 }

@@ -59,4 +59,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserSubscription::class)->wherePaymentStatus('paid')->latest();
     }
+
+    public function favourite()
+    {
+        return $this->hasMany(Favourite::class);
+    }
 }

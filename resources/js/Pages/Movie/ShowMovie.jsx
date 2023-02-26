@@ -2,10 +2,12 @@ import Browse from "@/Components/Browse";
 import HomeLayout from "@/Layouts/HomeLayout";
 import React from "react";
 import ReactPlayer from "react-player";
+import { Head } from "@inertiajs/inertia-react";
 
 const Show = ({auth, movie, listMovie}) => {
     return (
         <HomeLayout auth={auth}>
+            <Head title={movie.name} />
             <div className="h-screen lg:h-full pb-20">
                 <div className="lg:hidden">
                     <ReactPlayer

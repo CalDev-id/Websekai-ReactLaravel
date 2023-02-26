@@ -30,6 +30,9 @@ use App\Models\SubscriptionPlan;
 //     ]);
 // });
 
+//midtrans route
+Route::post('/midtrans/notification', [SubscriptionPlanController::class, 'midtransCallback'])->name('midtrans.notification');
+
 Route::redirect('/', '/login');
 
 Route::get('/logintes', function(){
@@ -62,12 +65,14 @@ Route::get('/chats', function(){
 //     return Inertia::render('User/Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
+Route::middleware(['auth'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::get('/chats', [DashboardController::class, 'chats'])->name('chats');
+    Route::get('/favourites', [DashboardController::class, 'favourites'])->name('favourites');
     Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show')->middleware('checkUserSubscription:true');
-    Route::get('/subscription', [SubscriptionPlanController::class, 'index'])->name('subscription.index')->middleware('checkUserSubscription:false');
-    Route::post('subscription/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscription.userSubscribe')->middleware('checkUserSubscription:false');
+    Route::get('/subscription', [SubscriptionPlanController::class, 'index'])->name('subscription.index');
+    // Route::get('/subscription', [SubscriptionPlanController::class, 'index'])->name('subscription.index')->middleware('checkUserSubscription:false');
+    Route::post('subscription/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscription.userSubscribe');
 
 });
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group(function () {
@@ -79,5 +84,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 require __DIR__.'/auth.php';

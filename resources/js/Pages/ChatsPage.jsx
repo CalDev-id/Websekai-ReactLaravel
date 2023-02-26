@@ -4,9 +4,9 @@ import { Head } from "@inertiajs/inertia-react";
 
 const ChatsPage = ({ auth }) => {
     return (
-        <HomeLayout auth={auth}>
+        <HomeLayout home={true} pageName={"Chats"} auth={auth}>
             <Head title="Chats" />
-            <div className="pt-16 px-5">
+            <div className="pt-20 h-screen px-5">
                 <Chat />
             </div>
         </HomeLayout>

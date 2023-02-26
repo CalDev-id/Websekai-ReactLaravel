@@ -9,7 +9,7 @@ const HomeLayout = ({ children, home, pageName, auth }) => {
     const [sidebarOn, setSidebarOn] = useState(false);
     return (
         <>
-            <section className="lg:flex bg-[#181A20]">
+            <section className="lg:flex bg-[#181A20] z-10">
                 <div className="lg:w-[20%] 2xl:w-[15%]">
                     <Sidebar
                         auth={auth}
